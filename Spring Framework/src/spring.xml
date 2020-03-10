@@ -8,6 +8,40 @@
 		<property name="pointB" ref="pointB"/>
 		<property name="pointC" ref="pointC"/>
 	</bean>
+	
+	<bean id="parenttrianglewithlist" class="pojo.TriangleWithList" autowire="byType" scope="prototype">
+		<property name="points">
+			<list>
+				<ref bean="pointA"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="parentsquare" class="pojo.Square" autowire="byType" scope="prototype">
+		<property name="pointA" ref="pointA"/>
+		<property name="pointB" ref="pointB"/>
+		<property name="pointC" ref="pointC"/>
+	</bean>
+	
+	<bean id="inheritedsquare" class="pojo.Square" autowire="byType" scope="prototype" parent="parentsquare">
+		<property name="pointD" ref="pointD"/>
+	</bean>
+	
+	<bean id="inheritedlisttriangle" class="pojo.TriangleWithList" autowire="byType" scope="prototype" parent="parenttrianglewithlist">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB"/>
+				<ref bean="pointC"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="square" class="pojo.Square" autowire="byType" scope="prototype">
+		<property name="pointA" ref="pointA"/>
+		<property name="pointB" ref="pointB"/>
+		<property name="pointC" ref="pointC"/>
+		<property name="pointD" ref="pointD"/>
+	</bean>
 
 	<bean id="pointA" class="pojo.Point">
 		<property name="x" value="0" />
@@ -20,5 +54,9 @@
 	<bean id="pointC" class="pojo.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
+	</bean>
+	<bean id="pointD" class="pojo.Point">
+		<property name="x" value="20" />
+		<property name="y" value="20" />
 	</bean>
 </beans>
