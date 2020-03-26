@@ -1,27 +1,33 @@
 package main;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import pojo.Square;
-import pojo.Triangle;
-import pojo.TriangleWithList;
+import pojo.Shape;
 
 public class DrawingApp {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		Triangle triangle = (Triangle)context.getBean("triangle");
-		triangle.draw();
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		context.registerShutdownHook();//this is to call init and destroy methods of bean of type singleton only
 		
-		TriangleWithList inheritedListTriangle = (TriangleWithList)context.getBean("inheritedlisttriangle");
-		inheritedListTriangle.draw();
+		System.out.println(context.getMessage("greeting", null, "Default greeting", null));
 		
-		Square square = (Square)context.getBean("square");
-		square.draw();
+		Shape shape1 = (Shape)context.getBean("triangle");
+		shape1.draw();
 		
-		Square inheritedSquare = (Square)context.getBean("inheritedsquare");
-		inheritedSquare.draw();
+		Shape shape2 = (Shape)context.getBean("inheritedlisttriangle");
+		shape2.draw();
+		
+		Shape shape3 = (Shape)context.getBean("square");
+		shape3.draw();
+		
+		Shape shape4 = (Shape)context.getBean("inheritedsquare");
+		shape4.draw();
+		
+		Shape shape5 = (Shape)context.getBean("circle");
+		shape5.draw();
+		context.close();
 	}
 
 }

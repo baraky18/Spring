@@ -2,11 +2,11 @@ package pojo;
 
 import java.util.List;
 
-public class TriangleWithList {
+public class TriangleWithList implements Shape{
 
 	private List<Point> points;
 	
-	
+	@Override
 	public void draw(){
 		for(Point point: points){
 			System.out.println("Point is: (" + point.getX() + "," + point.getY() + ")");

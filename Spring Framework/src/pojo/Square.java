@@ -1,13 +1,13 @@
 package pojo;
 
-public class Square {
+public class Square implements Shape{
 
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
 	private Point pointD;
 	
-	
+	@Override
 	public void draw(){
 		System.out.println("Point A is: (" + pointA.getX() + "," + pointA.getY() + ")");
 		System.out.println("Point B is: (" + pointB.getX() + "," + pointB.getY() + ")");
