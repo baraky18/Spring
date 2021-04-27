@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.security</groupId>
 	<artifactId>SpringSecurity</artifactId>
@@ -21,13 +21,21 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -38,6 +46,44 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.ldap/spring-ldap-core -->
+		<dependency>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>spring-ldap-core</artifactId>
+			<version>2.3.3.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.unboundid/unboundid-ldapsdk -->
+		<dependency>
+			<groupId>com.unboundid</groupId>
+			<artifactId>unboundid-ldapsdk</artifactId>
+			<version>5.1.4</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure -->
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<version>2.4.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

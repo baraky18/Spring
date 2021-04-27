@@ -1,0 +1,17 @@
+#to configure the authentication with Facebook we need to follow the following steps:
+#1. go to facebook.developer.com
+#2. my apps -> create app
+#3. settings -> basic
+#4. copy the app id and the secret
+#5. past the values here
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: github-client-id
+            clientSecret: github-client-secret
+          google:
+            client-id: google-client-id
+            client-secret: google-client-secret
